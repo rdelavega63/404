@@ -1,0 +1,205 @@
+<%- contentFor('login') %>
+  <!DOCTYPE html>
+  <html>
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+      <%- title %>
+    </title>
+    <link rel="icon" href="/images/positive_logo.ico">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./bower_components/materialize/dist/css/materialize.css">
+    <!-- Materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Materialize Icons -->
+    <link rel="stylesheet" href="/css/login.css">
+
+    <!-- Scripts -->
+    <script src="./bower_components/jquery/dist/jquery.js" charset="utf-8"></script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="./bower_components/materialize/dist/js/materialize.js"></script>
+    <!-- Materialize -->
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <!-- Firebase -->
+
+    <script src="js/env.js" charset="utf-8"></script>
+    <!-- Variables de ambiente -->
+
+  </head>
+
+  <body>
+    <div class="main-wrapper">
+
+      <div class="col s12 m12 l12" id="register-space">
+
+        <div class="row" id="information">
+          <img class="center valign" src="images/loader.png" alt="Logo-positive">
+          <h3 class="center-align">Iniciar sesión</h3>
+        </div>
+
+        <div class="row" id="register">
+
+          <div class="input-field" id="email">
+            <input id="email-input" type="email" class="validate">
+            <label for="email" data-error="Intenta escribiendo un dominio válido." data-success="Excelente.">Correo electrónico</label>
+          </div>
+          <!-- /#email -->
+
+          <div class="input-field" id="password">
+            <input id="passwd-input" type="password" class="validate">
+            <label for="passwd">Contraseña</label>
+          </div>
+          <!-- /#password -->
+
+          <div id="send">
+            <button class="btn z-depth-0 waves-effect hoverable" name="login-button" id="login-request">Entrar
+            </button>
+          </div>
+          <!-- ./send -->
+
+          <div class="row" id="last-options">
+            <div class="chip forget-pass">
+              <a href="#" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="No disponible temporalmente." id="password-forget">Contraseña olvidada.</a>
+              <!-- <a href="#password-recover" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Correo con la información para reestablecer contraseña." id="password-forget">Contraseña olvidada.</a> -->
+            </div>
+            <div class="chip register-form">
+              <a href="#register" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Formar parte de la Comunidad POSITIVE" id="btnRegister">
+                Registro.
+              </a>
+            </div>
+            <div class="chip download-form">
+              <a href="http://38.123.205.50:81/GCP/" target="_blank" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Descargar la app.">
+                Descargar.
+              </a>
+            </div>
+          </div>
+          <!-- ./last-options -->
+
+        </div>
+        <!-- ./register -->
+      </div>
+      <!-- ./register -->
+    </div>
+    <!-- /#register-space -->
+    </div>
+    <!-- /.row -->
+    </div>
+    <!-- ./main-wrapper -->
+
+    <!-- Recuperación de contraseña -->
+    <div id="password-recover" class="modal">
+      <div class="modal-content">
+        <h4>Recuperación de contraseña.</h4>
+        <p>Ingresa tu cuenta de correo asociada con nosotros y a la brevedad se enviará un mensaje para que puedas tus datos.
+          <br><strong>Una vez solicitado este cambio no puede deshacerse.</strong></p>
+        <br>
+        <div class="input-field" id="email-recovery">
+          <i class="material-icons prefix">email</i>
+          <input id="email-input-recovery" type="email" class="validate">
+          <label for="email-input-recovery" data-error="Intenta escribiendo un dominio válido." data-success="Excelente.">Correo electrónico</label>
+        </div>
+        <!-- /#email -->
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action waves-effect waves-green btn-flat" id="recovery-request">Acepto</a>
+      </div>
+    </div>
+    <!-- /.modal-footer -->
+    </div>
+    <!-- /.modal -->
+
+    <div class="modal modal-fixed-footer" id="register">
+      <div class="modal-content">
+        <div class="row">
+          <h4 class="center">Alta Electrónica e Prospectos y Contratos</h4>
+          <div style="padding-left: 3%;" class="container col s12">
+            <!--<p><strong>Ingresa los datos solicitados a continuacion, en breve nuestro personal se pondra en contacto.</strong></p>-->
+          </div>
+          <div class="row col s12">
+            <div class="input-field col s12">
+              <input id="name" type="text" class="validate">
+              <label for="name">*Nombre Comercial</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="rfc" type="text" class="validate">
+              <label for="rfc">*ID Fiscal</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="social" type="text" class="validate">
+              <label for="social">Razon Social</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="pais" type="text" class="validate">
+              <label for="pais">*Pais</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="zip" type="text" class="validate">
+              <label for="zip">*Codigo Postal</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="dir_fisl" type="text" class="validate">
+              <label for="dir_fisl">Dirección Fiscal</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="dir_fis" type="text" class="validate">
+              <label for="dir_fis">Dirección Fisica</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="cond" type="text" class="validate">
+              <label for="cond">Condiciones Comerciales</label>
+            </div>
+            <h5>Contacto Principal</h5>
+            <div class="input-field col s12">
+              <input id="principal_2" type="text" class="validate">
+              <label for="principal_2">Contacto</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="principal_email_2" type="email" class="validate">
+              <label for="principal_email_2">Correo Electronico</label>
+            </div>
+            <div class="input-field col s4">
+              <input id="principal_tel" type="text" class="validate">
+              <label for="principal_tel">Telefono</label>
+            </div>
+            <div class="input-field col s2">
+              <input id="principal_ext" type="text" class="validate">
+              <label for="principal_ext">Ext.</label>
+            </div>
+            <h5>Contacto de Pagos</h5>
+            <div class="input-field col s12">
+              <input id="principal_3" type="text" class="validate">
+              <label for="principal_3">Contacto</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="principal_email_3" type="email" class="validate">
+              <label for="principal_email_3">Correo Electronico</label>
+            </div>
+            <div class="input-field col s4">
+              <input id="principal_tel_3" type="text" class="validate">
+              <label for="principal_tel_3">Telefono</label>
+            </div>
+            <div class="input-field col s2">
+              <input id="principal_ext_3" type="text" class="validate">
+              <label for="principal_ext_3">Ext.</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <h6 class="left grey-text">*Campos obligatorios</h6>
+        <a id="data" class="modal-action waves-effect waves-green btn-flat">Aceptar</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar</a>
+      </div>
+    </div>
+    <script src="./js/login.js" charset="utf-8"></script>
+    <!-- Script principal -->
+
+  </body>
+
+  </html>
